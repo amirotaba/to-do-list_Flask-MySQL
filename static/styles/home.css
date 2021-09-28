@@ -1,0 +1,63 @@
+body {
+  background-color: darkgray;
+}
+#div {
+  color: white;
+  text-align: center;
+}
+form{
+  text-align: center;
+}
+label{
+  color: white;
+  vertical-align: 10px;
+}
+input{
+  vertical-align: 10px;
+}
+#new-task{
+  background-color: whitesmoke;
+  position: relative;
+  top: 10px;
+  padding: 15px;
+  font-size: xx-large;
+  text-align: center;
+  border: black;
+  border-radius: 25px;
+  color: black;
+}
+#task-entry{
+  position: relative;
+  top: 10px;
+  left: 15px;
+  padding: 15px;
+  padding-right: 50px;
+  padding-inline-start: 20px;
+  border: black;
+  border-radius: 25px;
+  align-content: center;
+}
+#add-task-button{
+  position: relative;
+  right: 28px;
+  padding: 15px;
+  border: black;
+  border-radius: 25px;
+  align-self: center;
+}
+#add-task-button:hover{
+  background: darkcyan;
+  color: white;
+}
+#show-tasks-button{
+  position: relative;
+  top: 20px;
+  padding: 10px;
+  border: black;
+  border-radius: 25px;
+  align-content: center;
+}
+#show-tasks-button:hover{
+  background: darkslategray;
+  color: white;
+}

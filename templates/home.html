@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do list</title>
+</head>
+<body>
+<div id="div" class="header">
+    <label id="new-task">To Do List</label>
+</div><br>
+    <form method="post" action="/">
+        <input type="text" id="task-entry" name="task" placeholder="Your task...">
+        <button type="submit" id="add-task-button" value="add-task" name="add-task">Add Task</button><br>
+        <button type="submit" id="show-tasks-button" value="show-tasks" name="show-tasks">Show All Tasks</button><br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/show-task-dis.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do list</title>
+</head>
+<body>
+<div id="div" class="header">
+    <label id="new-task">To Do List</label>
+</div><br>
+    <form method="post" action="/">
+        <input type="text" id="task-entry" name="task" placeholder="Your task..." autocomplete="off">
+        <button type="submit" id="add-task-button" value="add-task" name="add-task">Add Task</button><br>
+    </form>
+<table id="task-table">
+    <tr>
+        <th id="task-label">Tasks</th>
+        <th id="date-label">Date</th>
+    </tr>
+    {% for row in data %}
+        <tr>
+        {% if row[4] == "Y" %}
+            <td id="checked">{{ row[1] }}
+                <form method ="post" action="/" id="delete_form">
+                    <button type="submit" id="delete" value="{{ row[0] }}" name="delete">×</button>
+                    <button type="submit" id="check" name="check" value="{{ row[0] }}"></button>
+                </form>
+            </td>
+            {% if row[3]==0 %}
+                <td class="Date">today</td>
+                {% elif row[3]==1 %}
+                <td class="Date">yesterday</td>
+                {% else %}
+                <td class="Date">{{ row[3] }} days ago</td>
+                {% endif %}
+                {% else %}
+                <td id="not_checked">{{ row[1] }}
+                <form method ="post" action="/" id="delete_form">
+                    <button type="submit" id="delete" value="{{ row[0] }}" name="delete">×</button>
+                    <button type="submit" id="check" name="check" value="{{ row[0] }}"></button>
+                </form>
+            </td>
+            {% if row[3]==0 %}
+                <td class="Date">today</td>
+                {% elif row[3]==1 %}
+                <td class="Date">yesterday</td>
+                {% elif row[3]>1 and row[3]<4 %}
+                <td id="1day" class="Date" style="background: #ffffff; color: black; border: black; border-radius: 25px;">{{ row[3] }} days ago</td>
+                {% elif row[3]>3 and row[3]<8 %}
+                <td id="3day" class="Date" style="background: #ffffc8; color: black; border: black; border-radius: 25px;">{{ row[3] }} days ago</td>
+                {% elif row[3]>7 and row[3]<15 %}
+                <td id="7day" class="Date" style="background: #ffff00; color: black; border: black; border-radius: 25px;">{{ row[3] }} days ago</td>
+                {% elif row[3]>14 and row[3]<22 %}
+                <td id="14day" class="Date" style="background: #ff9600; color: white; border: black; border-radius: 25px;">{{ row[3] }} days ago</td>
+                {% elif row[3]>21 and row[3]<32 %}
+                <td id="21day" class="Date" style="background: #ff6400; color: white; border: black; border-radius: 25px;">{{ row[3] }} days ago</td>
+                {% elif row[3]>31 %}
+                <td id="31day" class="Date" style="background: #ff0000; color: white; border: black; border-radius: 25px;" >{{ row[3] }} days ago</td>
+                {% endif %}
+        {% endif %}
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
